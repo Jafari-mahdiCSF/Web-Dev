@@ -1,0 +1,21 @@
+h2,h3 {
+    color: rgb(230, 0, 46);
+    font-style: italic;
+    font-size:20px;
+}
+
+body {
+    background-color: rgb(255, 157, 10);
+}
+/* ----------------------------- CHALLENGE ---------------------------- */
+
+
+ body {
+     background-color :rgb(150, 148, 150);
+ }
+p {
+    color:rgb(194, 37, 194);
+}
+h1{
+    color:rgb(179, 23, 23);
+}
