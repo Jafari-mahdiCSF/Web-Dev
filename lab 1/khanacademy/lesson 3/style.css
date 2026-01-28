@@ -1,0 +1,47 @@
+<style>
+
+h2 {
+    color: rgb(0, 232, 15);
+}
+
+p {
+    color: rgb(191, 0, 255);
+}
+
+</style>
+
+  .song-lyrics {
+      background-color: yellow;
+      font-family: fantasy;
+      font-size: 13px;
+      font-style: italic;
+      font: italic 13px fantasy;
+  }
+<style>
+ .declaration {
+     font-weight:bold;
+ }
+
+.quote {
+    font-style:italic;
+}
+p {
+    color: rgb(191, 0, 255);
+    font-family: "Helvetica", sans-serif;
+}
+
+#rabbits-info {
+    color: purple;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.song-lyrics {
+    background-color: yellow;
+    font-family: fantasy;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.5em;
+    text-align: center;
+
+}

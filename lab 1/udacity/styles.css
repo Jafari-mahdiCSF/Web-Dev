@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+ul {
+    margin-top: 10px;
+}
+
+li {
+    margin: 5px 0;
+}
+
+h1 {
+    color: green;
+}
+
+.book-summary {
+    color: blue;
+}
+
+#site-description {
+    color: red;
+}
+.kitten-image {
+    border: 5px solid #fa8072;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+<style>
+ :root {
+     --ink: #111827;
+     --muted: #6b7280;
+     --bg: #f8fafc;
+     --card: #ffffff;
+     --accent: #4f46e5;
+     --salmon: #fa8072;
+ }
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Montserrat, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.4
+}
+
+header.site-header {
+    position: sticky;
+    top: 0;
+    background: var(--card);
+    border-bottom: 1px solid #e5e7eb
+}
+
+.wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .3px
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-right: 12px
+}
+
+nav a:hover {
+    color: var(--ink);
+    text-decoration: underline
+}
+
+main {
+    max-width: 900px;
+    margin: 22px auto;
+    padding: 0 18px;
+    display: grid;
+    gap: 18px
+}
+
+.udacity-text {
+    font-weight: 700;
+    font-size: 28px
+}
+
+.kitten-image {
+    width: 160px;
+    border: 5px solid var(--salmon);
+    cursor: pointer;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, .25);
+    border-radius: 10px
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 16px;
+    display: grid;
+    gap: 10px
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e5e7eb
+}
+
+.name {
+    font-weight: 700
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 12px
+}
+
+a[data-type="cta"] {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none
+}
+
+a[data-type="cta"]:hover {
+    filter: brightness(.95)
+}
+
+input[required] {
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    padding: 10px 12px;
+    width: 100%
+}
+
+input[required]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, .15)
+}
+</style>
