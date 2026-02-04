@@ -1,114 +1,181 @@
-/* Body styles */
-body {
-    background-color: #f4f6f8;
-
-    color: #333;
-    padding: 20px;
-    font-family: 'Lato', Arial, sans-serif;
+:root {
+    --bg: #f3f4f6;
+    --text: #111827;
+    --accent: #2563eb;
+    --muted: #6b7280;
+    --strip: #f9fafb;
 }
 
+/* Reset + base */
+* {
+    box-sizing: border-box
+}
 
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 18px
+}
+
+.wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px
+}
+
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 12px
+}
+
+.nav-list a {
+    color: var(--muted);
+    text-decoration: none
+}
+
+.nav-list a:hover {
+    color: var(--text);
+    text-decoration: underline
+}
+
+/* Headings */
 h1 {
-    color: #2c3e50;
-    font-size: 32px;
+    font-size: 28px;
+    margin: 0
 }
 
 h2 {
-    color: #34495e;
-    font-size: 22px;
+    color: var(--accent);
+    font-size: 20px
 }
 
-
-#main-title {
-    text-align: center;
-}
-a {
-    color: #0066cc;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: none;
-    color: #003366;
+/* ID and element selectors */
+#bio {
+    font-size: 15px;
+    color: #374151
 }
 
+img.avatar-img {
+    width: 150px;
+    border-radius: 8px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08)
+}
 
+/* Lists */
 ol {
-    margin-left: 25px;
+    padding-left: 1.2rem;
+    margin: 8px 0
 }
 
 ul {
-    margin-left: 25px;
-    list-style-type: square;
+    padding-left: 1.2rem;
+    margin: 8px 0;
+    list-style: square
 }
 
-
+/* Table styles */
 table {
+    width: 100%;
     border-collapse: collapse;
-    width: 60%;
-    margin-bottom: 20px;
+    margin-top: 12px
 }
 
-table, th, td {
-    border: 1px solid #555;
-    padding: 4px;
+table th, table td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    text-align: left
 }
 
-th {
-    background-color: #ddd;
+table tbody tr:nth-child(even) {
+    background: var(--strip)
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+/* Form styles */
+label {
+    display: block;
+    margin-top: 8px;
+    font-weight: 600
 }
-
 
 input, textarea {
-    width: 350px;
-    height: 30px;
-    border: 1px solid gray;
-    padding: 3px;
-    border-radius: 5px;
-
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-top: 4px
 }
 
-input:focus,
-textarea:focus {
-    border: 1px solid rgb(110, 107, 107);
-}
-.about {
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.about-text {
-    max-width: 700px;
-    height: 100%;
-}
-.avatar {
-    border: 4px ridge gray;
-}
-.hobbys {
-    list-style: none;
-
+button {
+    margin-top: 10px;
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer
 }
 
-.hobbys li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
+button:hover {
+    filter: brightness(.95)
 }
 
-.hobbys li img {
-    width: 24px;
-    height: 24px;
-}
-.skills {
-    margin-top: 50px;
-    display: flex;
-    gap: 500px;
+/* Element selector example */
+a {
+    color: var(--accent)
 }
 
+a.favorite-link {
+    font-weight: 600
+}
 
+a:hover {
+    text-decoration: underline
+}
+
+/* Inline style used directly on the H1 in the HTML */
+
+/* Responsive */
+@media (min-width: 700px) {
+    .card {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start
+    }
+
+    .card img.avatar-img {
+        flex: 0 0 150px
+    }
+
+    .card > * {
+        flex: 1
+    }
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 16px
+}
