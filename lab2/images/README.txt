@@ -1,0 +1,1 @@
+Optional images go here (e.g., phone mockup screenshot, logos).

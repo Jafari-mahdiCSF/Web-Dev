@@ -1,0 +1,114 @@
+/* Body styles */
+body {
+    background-color: #f4f6f8;
+
+    color: #333;
+    padding: 20px;
+    font-family: 'Lato', Arial, sans-serif;
+}
+
+
+h1 {
+    color: #2c3e50;
+    font-size: 32px;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 22px;
+}
+
+
+#main-title {
+    text-align: center;
+}
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: #003366;
+}
+
+
+ol {
+    margin-left: 25px;
+}
+
+ul {
+    margin-left: 25px;
+    list-style-type: square;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #555;
+    padding: 4px;
+}
+
+th {
+    background-color: #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+input, textarea {
+    width: 350px;
+    height: 30px;
+    border: 1px solid gray;
+    padding: 3px;
+    border-radius: 5px;
+
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid rgb(110, 107, 107);
+}
+.about {
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.about-text {
+    max-width: 700px;
+    height: 100%;
+}
+.avatar {
+    border: 4px ridge gray;
+}
+.hobbys {
+    list-style: none;
+
+}
+
+.hobbys li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.hobbys li img {
+    width: 24px;
+    height: 24px;
+}
+.skills {
+    margin-top: 50px;
+    display: flex;
+    gap: 500px;
+}
+
+

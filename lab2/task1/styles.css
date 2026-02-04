@@ -1,0 +1,168 @@
+/* Task 1 — Facebook login replica (educational)
+   Focus: logo, inputs, buttons, links, centered layout. */
+
+:root{
+  --bg:#f0f2f5;
+  --text:#1c1e21;
+  --muted:#606770;
+  --blue:#1877f2;
+  --green:#42b72a;
+  --card:#ffffff;
+  --border:#dddfe2;
+  --shadow: 0 2px 12px rgba(0,0,0,.12);
+  --radius: 10px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+.page{
+  min-height:calc(100vh - 48px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 18px;
+}
+
+.shell{
+  width:min(980px, 100%);
+  display:flex;
+  gap:48px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{ flex:1 1 520px; }
+.logo{
+  margin:0 0 10px;
+  font-size:56px;
+  line-height:1;
+  letter-spacing:-1px;
+  font-weight:800;
+  color:var(--blue);
+}
+.tagline{
+  margin:0;
+  font-size:22px;
+  color:var(--text);
+}
+
+.panel{ flex:0 0 396px; }
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.field input{
+  width:100%;
+  height:50px;
+  padding:0 14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:16px;
+  outline:none;
+  background:#fff;
+}
+.field input:focus{
+  border-color: rgba(24,119,242,.45);
+  box-shadow: 0 0 0 3px rgba(24,119,242,.12);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:8px;
+  height:48px;
+  border:0;
+  cursor:pointer;
+  padding:0 14px;
+  font-size:16px;
+}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+}
+.btn-primary:hover{ filter:brightness(.97); }
+.btn-green{
+  align-self:center;
+  height:44px;
+  padding:0 18px;
+  background:var(--green);
+  color:#fff;
+  font-size:15px;
+  border-radius:8px;
+}
+
+.link{
+  text-align:center;
+  text-decoration:none;
+  color:var(--blue);
+  font-size:14px;
+  padding:6px 0 2px;
+}
+.link:hover{ text-decoration:underline; }
+
+.divider{
+  height:1px;
+  background:var(--border);
+  margin:6px 0 2px;
+}
+
+.below{
+  margin:12px 0 0;
+  text-align:center;
+  font-size:13px;
+  color:#1c1e21;
+}
+.below-link{
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+}
+.below-link:hover{ text-decoration:underline; }
+
+.footer{
+  padding:12px 18px 18px;
+  color:var(--muted);
+}
+.footer-inner{
+  width:min(980px, 100%);
+  margin:0 auto;
+}
+
+/* Accessibility helper */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  border:0;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 860px){
+  .shell{
+    flex-direction:column;
+    gap:22px;
+    align-items:center;
+    text-align:center;
+  }
+  .brand{ flex:0 0 auto; }
+  .panel{ width:min(396px, 100%); }
+  .tagline{ font-size:18px; }
+  .logo{ font-size:52px; }
+}

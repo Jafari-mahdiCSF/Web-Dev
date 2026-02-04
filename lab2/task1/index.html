@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 2 — Task 1 (Facebook Login)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page" aria-label="Facebook login page replica (educational)">
+    <section class="shell">
+      <div class="brand" aria-label="Facebook brand section">
+        <h1 class="logo" aria-label="facebook">facebook</h1>
+        <p class="tagline">
+          Facebook helps you connect and share<br />
+          with the people in your life.
+        </p>
+      </div>
+
+      <section class="panel" aria-label="Login panel">
+        <form class="card" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="fb-identifier" class="sr-only">Email address or phone number</label>
+            <input
+              id="fb-identifier"
+              name="identifier"
+              type="text"
+              inputmode="email"
+              autocomplete="username"
+              placeholder="Email address or phone number"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="fb-password" class="sr-only">Password</label>
+            <input
+              id="fb-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <button class="btn btn-primary" type="submit">Log in</button>
+
+          <a class="link" href="#" aria-label="Forgot password link">Forgotten password?</a>
+
+          <div class="divider" role="separator" aria-label="Divider"></div>
+
+          <a class="btn btn-green" href="#" role="button" aria-label="Create new account link">
+            Create new account
+          </a>
+        </form>
+
+        <p class="below">
+          <a class="below-link" href="#">Create a Page</a>
+          for a celebrity, brand or business.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer links (minimal)">
+    <div class="footer-inner">
+      <small>Replica for a university HTML/CSS lab.</small>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* Task 3 — GitHub Pricing layout (educational)
+   Focus: hero, 3 tier cards, add-ons grid, one responsive breakpoint. */
+
+:root{
+  --bg:#0b1220;
+  --surface:#0f172a;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --border:#e5e7eb;
+  --shadow: 0 16px 40px rgba(15, 23, 42, .14);
+  --blue:#2563eb;
+  --blueDark:#1e40af;
+  --slate:#0f172a;
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#fff;
+  color:var(--text);
+}
+
+.container{
+  width:min(1100px, calc(100% - 32px));
+  margin:0 auto;
+}
+
+.hero{
+  padding:56px 0 28px;
+  background:
+    radial-gradient(900px 350px at 25% 10%, rgba(37,99,235,.15), transparent 60%),
+    radial-gradient(900px 350px at 75% 10%, rgba(99,102,241,.14), transparent 58%),
+    #ffffff;
+  border-bottom:1px solid #eef2f7;
+}
+
+.hero-title{
+  margin:0;
+  font-size:44px;
+  letter-spacing:-0.6px;
+}
+.hero-subtitle{
+  margin:12px auto 18px;
+  max-width: 62ch;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+}
+
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  background: #111827;
+  color:#fff;
+}
+.cta:hover{ filter:brightness(.98); }
+
+.section-title{
+  margin:0 0 12px;
+  font-size:22px;
+  letter-spacing:-0.2px;
+}
+.section-subtitle{
+  margin:0;
+  color:var(--muted);
+}
+
+.pricing{
+  padding:28px 0 18px;
+}
+
+.tiers{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+  align-items:stretch;
+}
+
+.tier{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow: var(--shadow);
+  padding:18px;
+  position:relative;
+  min-height: 390px;
+  display:flex;
+  flex-direction:column;
+}
+
+.tier-head h3{
+  margin:0;
+  font-size:18px;
+}
+.tier-note{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.price{
+  margin:14px 0 14px;
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+}
+.amount{
+  font-size:34px;
+  font-weight:800;
+}
+.per{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.tier-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  height:40px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  color:var(--slate);
+  font-weight:700;
+  background:#fff;
+}
+.tier-btn:hover{ background:#f8fafc; }
+
+.tier-btn--dark{
+  background:#111827;
+  color:#fff;
+  border-color:#111827;
+}
+.tier-btn--dark:hover{ filter:brightness(.98); }
+
+.features{
+  margin:16px 0 0;
+  padding-left:18px;
+  color:#111827;
+}
+.features li{
+  margin:8px 0;
+  color: #0f172a;
+}
+.tier--highlight{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 20px 50px rgba(37,99,235,.14);
+}
+.badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  font-size:11px;
+  letter-spacing:.08em;
+  font-weight:800;
+  color:#2563eb;
+  background: rgba(37,99,235,.10);
+  border:1px solid rgba(37,99,235,.22);
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+.tier-actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.tier-link{
+  color:var(--blueDark);
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.tier-link:hover{ text-decoration:underline; }
+
+.addons{
+  padding:10px 0 46px;
+}
+.addons-head{
+  margin-top:10px;
+  margin-bottom:12px;
+}
+
+.addon-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+}
+
+.addon{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  background:#fff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, .08);
+}
+.addon-title{
+  margin:0 0 6px;
+  font-size:16px;
+}
+.addon-desc{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+.addon-link{
+  text-decoration:none;
+  color:var(--blueDark);
+  font-weight:700;
+  font-size:13px;
+}
+.addon-link:hover{ text-decoration:underline; }
+
+.foot{
+  border-top:1px solid #eef2f7;
+  padding:18px 0 30px;
+  color:var(--muted);
+}
+
+/* One breakpoint: stack cards on mobile */
+@media (max-width: 900px){
+  .hero-title{ font-size:34px; }
+  .tiers{ grid-template-columns: 1fr; }
+  .addon-grid{ grid-template-columns: 1fr; }
+}

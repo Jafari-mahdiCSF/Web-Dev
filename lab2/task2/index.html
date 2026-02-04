@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 2 — Task 2 (Instagram Login)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page" aria-label="Instagram login page replica (educational)">
+    <section class="layout">
+      <!-- Phone mockup is optional in the lab. Here we use a simple CSS mockup + decorative cards. -->
+      <section class="promo" aria-label="Promo panel">
+        <div class="ig-mark" aria-hidden="true">
+          <!-- simple gradient camera icon (inline SVG so no external assets needed) -->
+          <svg viewBox="0 0 24 24" width="28" height="28" role="img" aria-label="Instagram icon">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1" y1="1" y2="0">
+                <stop offset="0" stop-color="#feda75"/>
+                <stop offset="0.35" stop-color="#fa7e1e"/>
+                <stop offset="0.65" stop-color="#d62976"/>
+                <stop offset="0.82" stop-color="#962fbf"/>
+                <stop offset="1" stop-color="#4f5bd5"/>
+              </linearGradient>
+            </defs>
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="url(#g)"/>
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.2" fill="#fff"/>
+          </svg>
+        </div>
+
+        <h1 class="headline">
+          See the moments<br />
+          your <span class="hl-1">closest</span><br />
+          <span class="hl-2">friends</span> shared.
+        </h1>
+
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="stack">
+              <div class="card c1"></div>
+              <div class="card c2"></div>
+              <div class="card c3"></div>
+            </div>
+            <div class="hearts">
+              <span class="dot d1"></span>
+              <span class="dot d2"></span>
+              <span class="dot d3"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth" aria-label="Login panel">
+        <div class="box">
+          <h2 class="box-title">Log in to Instagram</h2>
+
+          <form class="form" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="ig-identifier" class="sr-only">Phone number, username, or email</label>
+              <input id="ig-identifier" name="identifier" type="text"
+                autocomplete="username"
+                placeholder="Phone number, username, or email" required />
+            </div>
+
+            <div class="field">
+              <label for="ig-password" class="sr-only">Password</label>
+              <input id="ig-password" name="password" type="password"
+                autocomplete="current-password"
+                placeholder="Password" required />
+            </div>
+
+            <button class="btn" type="submit">Log In</button>
+
+            <a class="forgot" href="#">Forgot password?</a>
+
+            <div class="or" role="separator" aria-label="OR separator">
+              <span class="line"></span>
+              <span class="or-text">OR</span>
+              <span class="line"></span>
+            </div>
+
+            <button class="btn btn-ghost" type="button" aria-label="Log in with Facebook">
+              Log in with Facebook
+            </button>
+          </form>
+        </div>
+
+        <div class="box box-lite">
+          <p class="signup">
+            Don't have an account?
+            <a href="#" class="signup-link">Sign up</a>
+          </p>
+        </div>
+
+        <p class="meta">© 2026 — Replica for a university lab.</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
