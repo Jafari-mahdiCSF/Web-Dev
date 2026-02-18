@@ -13,7 +13,7 @@ html,body{ height:100%; }
   --btn:#c7d2fe;
   --btnText:#0b1f66;
 
-  /* right side (white theme - unified colors) */
+  /* right side  */
   --ig-bg: #ffffff;                /* overall bg for auth area */
   --ig-panel: #ffffff;             /* panel / field background */
   --ig-border: #e5e7eb;            /* light border */
@@ -216,7 +216,7 @@ body{
   border-radius:22px;
 
   background: var(--ig-btn);
-  color: #ffffff; /* white text for primary button */
+  color: #ffffff;
 
   font-size:15px;
   font-weight:500;
@@ -257,7 +257,7 @@ body{
   justify-content:center;
   gap:10px;
 
-  background: transparent; /* transparent for outline style */
+  background: transparent;
   border: 1px solid rgba(29,78,216,0.08);
   border-radius:22px;
 
