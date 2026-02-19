@@ -1,0 +1,43 @@
+<div class="product-card">
+  <a [href]="product.link" target="_blank" class="product-link">
+    <img [src]="product.image" [alt]="product.name" class="product-image">
+  </a>
+
+  <div class="product-info">
+    <h3 class="product-title">
+      <a [href]="product.link" target="_blank">{{ product.name }}</a>
+    </h3>
+
+    <p class="product-description">{{ product.description }}</p>
+
+    <div class="product-rating">
+      <!-- Full stars -->
+      @for (star of fullStars; track $index) {
+        <span class="star filled">★</span>
+      }
+
+      <!-- Half star -->
+      @if (hasHalfStar) {
+        <span class="star half">½</span>
+      }
+
+      <!-- Empty stars -->
+      @for (star of emptyStars; track $index) {
+        <span class="star empty">☆</span>
+      }
+
+      <span class="rating-value">({{ product.rating }})</span>
+    </div>
+
+    <div class="product-price">{{ product.price | number }} ₸</div>
+
+    <div class="product-actions">
+      <button class="share-btn whatsapp" (click)="shareOnWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </button>
+      <button class="share-btn telegram" (click)="shareOnTelegram()">
+        <i class="fa-brands fa-telegram"></i> Telegram
+      </button>
+    </div>
+  </div>
+</div>

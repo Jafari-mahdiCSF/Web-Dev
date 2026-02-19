@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="brand">
+    <div class="logo">NG</div>
+    <div>
+      <div class="title">{{ title }}</div>
+      <div class="subtitle">standalone + routing + services + forms</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="tasks" routerLinkActive="active">Tasks</a>
+    <a routerLink="about" routerLinkActive="active">About</a>
+    <a routerLink="users" routerLinkActive="active">Users</a>
+  </nav>
+</header>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

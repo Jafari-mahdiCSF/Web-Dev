@@ -1,0 +1,12 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Kaspi.kz Store</h1>
+    <p class="product-count">Товаров: {{ products.length }}</p>
+  </header>
+
+  <div class="products-grid">
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+</div>

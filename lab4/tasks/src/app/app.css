@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e7e7e7;
+  background: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: #111; color: #fff; font-weight: 700;
+}
+.title { font-weight: 700; }
+.subtitle { color: #666; font-size: 12px; }
+
+.nav { display: flex; gap: 10px; }
+.nav a {
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+}
+.nav a.active { background: #f1f1f1; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 18px; }
+

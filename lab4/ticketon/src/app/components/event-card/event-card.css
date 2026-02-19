@@ -1,0 +1,170 @@
+.event-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.event-link {
+  display: block;
+  padding: 16px;
+  text-align: center;
+  background: #f8f8f8;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.event-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.event-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.event-title a:hover {
+  color: #e31b23;
+}
+
+.event-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-rating {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  font-size: 1.2rem;
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.star.half {
+  color: #ffc107;
+  font-size: 1rem;
+}
+
+.star.empty {
+  color: #ddd;
+}
+
+.rating-value {
+  margin-left: 8px;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.event-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e31b23;
+  margin-bottom: 16px;
+}
+
+.event-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.share-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.share-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.share-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.share-btn.telegram {
+  background: #0088cc;
+  color: white;
+}
+
+.share-btn i {
+  font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .event-link {
+    height: 180px;
+  }
+
+  .event-image {
+    max-height: 160px;
+  }
+
+  .event-title {
+    font-size: 1.1rem;
+  }
+
+  .event-price {
+    font-size: 1.5rem;
+  }
+
+  .event-actions {
+    flex-direction: column;
+  }
+}
+

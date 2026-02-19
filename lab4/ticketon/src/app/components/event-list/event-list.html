@@ -1,0 +1,31 @@
+<div class="container">
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-top">
+        <div class="logo-section">
+          <span class="logo">Ticketon.kz</span>
+          <span class="tagline">Ваш билет в мир событий</span>
+        </div>
+        <div class="header-stats">
+          <span class="stat-label">Доступно</span>
+          <span class="stat-value">{{ events.length }}</span>
+          <span class="stat-unit">событий</span>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <h1>Афиша мероприятий</h1>
+        <div class="header-decoration"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="events-grid">
+    @for (event of events; track event.id) {
+      <app-event-card [event]="event"></app-event-card>
+    }
+  </div>
+
+  <footer class="page-footer">
+    <p>Все мероприятия на <a href="https://ticketon.kz" target="_blank">Ticketon.kz</a></p>
+  </footer>
+</div>
