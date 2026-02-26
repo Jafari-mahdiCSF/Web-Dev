@@ -1,0 +1,20 @@
+<div class="product-list-container">
+  @if (products().length > 0) {
+    <h2>{{ categoryName() }}</h2>
+    <div class="products-grid">
+      @for (product of products(); track product.id) {
+        <app-product-card
+          [product]="product"
+          (like)="onLike($event)"
+          (delete)="onDelete($event)"
+          (share)="onShare($event)"
+          (favorite)="onFavorite($event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p>No products available in this category.</p>
+    </div>
+  }
+</div>

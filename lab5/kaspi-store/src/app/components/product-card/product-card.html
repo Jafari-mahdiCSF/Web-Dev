@@ -1,0 +1,73 @@
+<div class="product-card">
+  <div class="product-image-container">
+    <a [href]="product().link" target="_blank" class="product-link">
+      <img
+        [src]="product().image"
+        [alt]="product().name"
+        class="product-image"
+        (error)="onImageError($event)"
+      >
+    </a>
+    <button class="like-btn" (click)="onLike()" title="Like this product">
+      <i class="fas fa-heart"></i>
+      <span>{{ product().likes }}</span>
+    </button>
+  </div>
+
+  <div class="product-info">
+    <h3 class="product-title">
+      <a [href]="product().link" target="_blank">{{ product().name }}</a>
+    </h3>
+
+    <p class="product-description">{{ product().description }}</p>
+
+    <div class="product-rating">
+      <!-- Full stars -->
+      @for (star of fullStars; track $index) {
+        <span class="star filled">★</span>
+      }
+
+      <!-- Half star -->
+      @if (hasHalfStar) {
+        <span class="star half">½</span>
+      }
+
+      <!-- Empty stars -->
+      @for (star of emptyStars; track $index) {
+        <span class="star empty">☆</span>
+      }
+
+      <span class="rating-value">({{ product().rating }})</span>
+    </div>
+
+    <div class="product-price">{{ product().price | number }} ₸</div>
+
+    <div class="product-actions">
+      <button class="action-btn favorite-btn" (click)="onToggleFavorite()" [class.active]="product().isFavorite" title="Add to Favorites">
+        <i class="fas fa-star"></i>
+        <span>{{ product().isFavorite ? 'In Favorites' : 'Add to Favorites' }}</span>
+      </button>
+
+      <button class="action-btn share-btn" (click)="toggleShareMenu()" title="Share Product">
+        <i class="fas fa-share-alt"></i>
+        <span>Share</span>
+      </button>
+
+      <button class="action-btn delete-btn" (click)="onDelete()" title="Delete Product">
+        <i class="fas fa-trash-alt"></i>
+        <span>Delete</span>
+      </button>
+    </div>
+
+    <div class="share-menu" *ngIf="showShareMenu">
+      <button class="share-option whatsapp" (click)="shareOnWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </button>
+      <button class="share-option telegram" (click)="shareOnTelegram()">
+        <i class="fab fa-telegram-plane"></i>
+        <span>Telegram</span>
+      </button>
+    </div>
+  </div>
+</div>
