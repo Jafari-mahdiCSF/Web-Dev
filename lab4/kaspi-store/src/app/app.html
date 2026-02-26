@@ -1,3 +1,39 @@
-<main>
-  <app-product-list></app-product-list>
-</main>
+<div class="app-container">
+  <header>
+    <h1>Online Store</h1>
+  </header>
+
+  <div class="main-content">
+    <aside class="categories-sidebar">
+      <h2>Categories</h2>
+      <div class="categories-list">
+        @for (category of categories; track category.id) {
+          <button
+            class="category-btn"
+            [class.active]="selectedCategory?.id === category.id"
+            (click)="selectCategory(category)"
+          >
+            {{ category.name }}
+          </button>
+        }
+      </div>
+    </aside>
+
+    <main class="products-area">
+      @if (selectedCategory) {
+        <app-product-list
+          [products]="products"
+          [categoryName]="selectedCategory.name"
+          (deleteProduct)="onDeleteProduct($event)"
+          (likeProduct)="onLikeProduct($event)"
+          (shareProduct)="onShareProduct($event)"
+        />
+      } @else {
+        <div class="welcome-message">
+          <h2>Welcome to Our Store!</h2>
+          <p>Please select a category from the sidebar to start shopping.</p>
+        </div>
+      }
+    </main>
+  </div>
+</div>

@@ -94,12 +94,34 @@
   margin-bottom: 12px;
 }
 
+.likes-section {
+  margin-bottom: 12px;
+}
+
+.like-btn {
+  background: none;
+  border: 1px solid #ff4757;
+  color: #ff4757;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.like-btn:hover {
+  background: #ff4757;
+  color: white;
+  transform: scale(1.05);
+}
+
 .product-actions {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
-.share-btn {
+.share-btn, .delete-btn {
   flex: 1;
   padding: 8px 12px;
   border: none;
@@ -112,9 +134,10 @@
   justify-content: center;
   gap: 6px;
   font-weight: 500;
+  min-width: 80px;
 }
 
-.share-btn:hover {
+.share-btn:hover, .delete-btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -127,6 +150,11 @@
 
 .share-btn.telegram {
   background: #0088cc;
+  color: white;
+}
+
+.delete-btn {
+  background: #ff4757;
   color: white;
 }
 

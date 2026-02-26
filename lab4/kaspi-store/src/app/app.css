@@ -4,3 +4,118 @@
   background-color: #f5f5f5;
 }
 
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 80px);
+}
+
+.categories-sidebar {
+  width: 250px;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-right: 1px solid #e0e0e0;
+}
+
+.categories-sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-btn {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: white;
+  color: #333;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+}
+
+.category-btn:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.category-btn.active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.products-area {
+  flex: 1;
+  padding: 1.5rem;
+  background: #ffffff;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.welcome-message h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.welcome-message p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .categories-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .categories-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .category-btn {
+    flex: 1 1 auto;
+    min-width: 120px;
+    text-align: center;
+  }
+}
+

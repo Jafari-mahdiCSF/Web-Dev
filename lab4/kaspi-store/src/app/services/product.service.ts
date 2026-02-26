@@ -1,155 +1,366 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
+import { Category } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private categories: Category[] = [
+    { id: 1, name: 'Smartphones' },
+    { id: 2, name: 'Laptops' },
+    { id: 3, name: 'Headphones' },
+    { id: 4, name: 'Tablets' }
+  ];
+
   private products: Product[] = [
+    // Smartphones (categoryId: 1)
     {
       id: 1,
-      name: 'Apple iPhone 15 Pro Max',
-      description: 'Смартфон Apple iPhone 15 Pro Max, 256GB, натуральный титан. Самый мощный iPhone с инновационной камерой и титановым корпусом.',
-      price: 698990,
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop',
+      name: 'iPhone 15 Pro Max',
+      description: 'Apple A17 Pro chip, 6.7" Super Retina XDR display, 48MP camera',
+      price: 649990,
+      rating: 4.9,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hc1/h65/83559848198174.png',
       images: [
-        'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1695048133300-1a29be3e7a1e?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1695048133458-bbf5c8c9ef07?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/hc1/h65/83559848198174.png',
+        'https://resources.cdn-kaspi.kz/img/m/p/hc1/h65/83559848198174.png',
+        'https://resources.cdn-kaspi.kz/img/m/p/hc1/h65/83559848198174.png'
       ],
-      link: 'https://kaspi.kz/shop/p/apple-iphone-15-pro-max-256gb-113677788/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/apple-iphone-15-pro-max-256gb-sinii-113138420/',
+      likes: 0,
+      categoryId: 1
     },
     {
       id: 2,
       name: 'Samsung Galaxy S24 Ultra',
-      description: 'Смартфон Samsung Galaxy S24 Ultra, 512GB, титановый черный. Флагман с поддержкой S Pen и 200MP камерой.',
-      price: 648990,
-      rating: 4.7,
-      image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop',
+      description: 'Snapdragon 8 Gen 3, 6.8" Dynamic AMOLED 2X, 200MP camera',
+      price: 549990,
+      rating: 4.8,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h81/h0a/84963252699166.jpg',
       images: [
-        'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h81/h0a/84963252699166.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h81/h0a/84963252699166.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h81/h0a/84963252699166.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/samsung-galaxy-s24-ultra-512gb-116310358/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/samsung-galaxy-s24-ultra-5g-256gb-chernyi-116043556/',
+      likes: 0,
+      categoryId: 1
     },
     {
       id: 3,
-      name: 'MacBook Pro 16" M3 Pro',
-      description: 'Ноутбук Apple MacBook Pro 16" M3 Pro, 18GB RAM, 512GB SSD, серый космос. Профессиональный ноутбук для работы и творчества.',
-      price: 1198990,
-      rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop',
+      name: 'Google Pixel 8 Pro',
+      description: 'Google Tensor G3, 6.7" LTPO OLED, 50MP camera with AI features',
+      price: 449990,
+      rating: 4.7,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h32/h63/84963253223454.jpg',
       images: [
-        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h32/h63/84963253223454.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h32/h63/84963253223454.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h32/h63/84963253223454.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/apple-macbook-pro-16-m3-pro-118309576/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/google-pixel-8-pro-256gb-chernyi-114411182/',
+      likes: 0,
+      categoryId: 1
     },
     {
       id: 4,
-      name: 'Sony PlayStation 5 Slim',
-      description: 'Игровая приставка Sony PlayStation 5 Slim, 1TB, белая. Сверхбыстрый SSD и потрясающая графика для незабываемого гейминга.',
-      price: 289990,
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop',
+      name: 'Xiaomi 14 Ultra',
+      description: 'Snapdragon 8 Gen 3, 6.73" LTPO AMOLED, Leica quad camera',
+      price: 399990,
+      rating: 4.6,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h45/h51/85390116814878.jpg',
       images: [
-        'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h45/h51/85390116814878.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h45/h51/85390116814878.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h45/h51/85390116814878.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/sony-playstation-5-slim-1tb-119514107/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/xiaomi-14-ultra-512gb-chernyi-117510403/',
+      likes: 0,
+      categoryId: 1
     },
     {
       id: 5,
-      name: 'Xiaomi Robot Vacuum S10+',
-      description: 'Робот-пылесос Xiaomi Robot Vacuum S10+, белый. Лазерная навигация, мощностью 4000 Па, влажная уборка.',
-      price: 129990,
-      rating: 4.6,
-      image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop',
+      name: 'OnePlus 12',
+      description: 'Snapdragon 8 Gen 3, 6.82" LTPO AMOLED, 50MP triple camera',
+      price: 379990,
+      rating: 4.7,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hf0/h2d/84922129711134.jpg',
       images: [
-        'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1625241970880-6f7b0c58e5f2?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/hf0/h2d/84922129711134.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hf0/h2d/84922129711134.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hf0/h2d/84922129711134.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/xiaomi-robot-vacuum-s10-115781543/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/oneplus-12-512gb-chernyi-115992307/',
+      likes: 0,
+      categoryId: 1
     },
+    // Laptops (categoryId: 2)
     {
       id: 6,
-      name: 'Apple AirPods Pro 2',
-      description: 'Наушники Apple AirPods Pro 2, белый. Активное шумоподавление, пространственное аудио, беспроводная зарядка.',
-      price: 119990,
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&h=400&fit=crop',
+      name: 'MacBook Pro 16',
+      description: 'Apple M3 Pro chip, 16" Liquid Retina XDR, 18GB RAM',
+      price: 1199990,
+      rating: 4.9,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h41/h63/84907860918302.jpg',
       images: [
-        'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1590658165737-15a047b7a1b4?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h41/h63/84907860918302.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h41/h63/84907860918302.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h41/h63/84907860918302.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/apple-airpods-pro-2-106362968/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/apple-macbook-pro-16-m3-pro-18-gb-ssd-512-gb-macos-145519560/',
+      likes: 0,
+      categoryId: 2
     },
     {
       id: 7,
-      name: 'Samsung QLED 65" 4K',
-      description: 'Телевизор Samsung QLED 65" 4K, черный. Quantum Dot технология, HDR, Smart TV, голосовое управление.',
-      price: 499990,
-      rating: 4.7,
-      image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop',
+      name: 'ASUS ROG Zephyrus G14',
+      description: 'AMD Ryzen 9, RTX 4060, 14" QHD, 16GB RAM',
+      price: 899990,
+      rating: 4.8,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h67/h10/86352326508574.jpg',
       images: [
-        'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1593359863503-f598a21e4a15?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h67/h10/86352326508574.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h67/h10/86352326508574.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h67/h10/86352326508574.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/samsung-qe65q60cau-165-sm-65-2023-114557610/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/asus-rog-zephyrus-g14-ga403ui-16gb-1tb-ssd-120753759/',
+      likes: 0,
+      categoryId: 2
     },
     {
       id: 8,
-      name: 'Canon EOS R6 Mark II',
-      description: 'Фотоаппарат Canon EOS R6 Mark II, 24.2 МП, беззеркальный, черный. Профессиональная камера для фото и видео.',
-      price: 899990,
-      rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1606980707182-1047b1d0c449?w=400&h=400&fit=crop',
+      name: 'Dell XPS 15',
+      description: 'Intel Core i9, RTX 4060, 15.6" OLED, 32GB RAM',
+      price: 999990,
+      rating: 4.7,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hdc/h5f/84907843944478.jpg',
       images: [
-        'https://images.unsplash.com/photo-1606980707182-1047b1d0c449?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1617575521317-d2974f3b56d2?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/hdc/h5f/84907843944478.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hdc/h5f/84907843944478.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hdc/h5f/84907843944478.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/canon-eos-r6-mark-ii-kit-24-105mm-118308611/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/dell-xps-15-9530-32gb-1tb-ssd-115888438/',
+      likes: 0,
+      categoryId: 2
     },
     {
       id: 9,
-      name: 'Dyson V15 Detect Absolute',
-      description: 'Пылесос Dyson V15 Detect Absolute, золотистый. Лазерная подсветка, цифровой дисплей, мощностью 240 Вт.',
-      price: 349990,
+      name: 'Lenovo Legion 5 Pro',
+      description: 'AMD Ryzen 7, RTX 4060, 16" WQXGA, 16GB RAM',
+      price: 749990,
       rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=400&h=400&fit=crop',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hf9/hc6/85556875329566.jpg',
       images: [
-        'https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/hf9/hc6/85556875329566.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hf9/hc6/85556875329566.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hf9/hc6/85556875329566.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/dyson-v15-detect-absolute-106714084/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/lenovo-legion-5-pro-16arx8-16gb-512gb-ssd-118401831/',
+      likes: 0,
+      categoryId: 2
     },
     {
       id: 10,
-      name: 'Herman Miller Aeron',
-      description: 'Кресло Herman Miller Aeron, черное. Эргономичное офисное кресло с поддержкой поясницы и регулировками.',
-      price: 899990,
-      rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
+      name: 'HP Spectre x360',
+      description: 'Intel Core i7, 14" OLED touch, 16GB RAM, 1TB SSD',
+      price: 699990,
+      rating: 4.6,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h25/haa/85630173380638.jpg',
       images: [
-        'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1505843490918-d0e6b4e7d0e2?w=400&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&h=400&fit=crop'
+        'https://resources.cdn-kaspi.kz/img/m/p/h25/haa/85630173380638.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h25/haa/85630173380638.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h25/haa/85630173380638.jpg'
       ],
-      link: 'https://kaspi.kz/shop/p/herman-miller-aeron-105572184/?c=750000000'
+      link: 'https://kaspi.kz/shop/p/hp-spectre-x360-14-eu0009ci-16gb-1tb-ssd-119812611/',
+      likes: 0,
+      categoryId: 2
+    },
+    // Headphones (categoryId: 3)
+    {
+      id: 11,
+      name: 'Sony WH-1000XM5',
+      description: 'Wireless noise cancelling, 30hr battery, LDAC support',
+      price: 149990,
+      rating: 4.9,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h7a/h07/64285376495646.jpg',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h7a/h07/64285376495646.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h7a/h07/64285376495646.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h7a/h07/64285376495646.jpg'
+      ],
+      link: 'https://kaspi.kz/shop/p/sony-wh-1000xm5-chernyi-105995922/',
+      likes: 0,
+      categoryId: 3
+    },
+    {
+      id: 12,
+      name: 'Apple AirPods Max',
+      description: 'Over-ear, active noise cancellation, spatial audio',
+      price: 299990,
+      rating: 4.8,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hb4/h03/64416981696542.jpg',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/hb4/h03/64416981696542.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hb4/h03/64416981696542.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hb4/h03/64416981696542.jpg'
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-airpods-max-serebristyi-100956789/',
+      likes: 0,
+      categoryId: 3
+    },
+    {
+      id: 13,
+      name: 'Bose QuietComfort Ultra',
+      description: 'Premium noise cancelling, immersive audio, 24hr battery',
+      price: 179990,
+      rating: 4.8,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hc0/h33/84963341516830.jpg',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/hc0/h33/84963341516830.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hc0/h33/84963341516830.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/hc0/h33/84963341516830.jpg'
+      ],
+      link: 'https://kaspi.kz/shop/p/bose-quietcomfort-ultra-chernyi-115708310/',
+      likes: 0,
+      categoryId: 3
+    },
+    {
+      id: 14,
+      name: 'Sennheiser Momentum 4',
+      description: 'Wireless, adaptive noise cancellation, 60hr battery',
+      price: 139990,
+      rating: 4.7,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h7e/hfd/70010958938142.jpg',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h7e/hfd/70010958938142.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h7e/hfd/70010958938142.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h7e/hfd/70010958938142.jpg'
+      ],
+      link: 'https://kaspi.kz/shop/p/sennheiser-momentum-4-wireless-chernyi-108025673/',
+      likes: 0,
+      categoryId: 3
+    },
+    {
+      id: 15,
+      name: 'JBL Tour One M2',
+      description: 'Wireless, adaptive noise cancelling, 50hr battery',
+      price: 89990,
+      rating: 4.6,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h23/hbb/85185544798238.jpg',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h23/hbb/85185544798238.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h23/hbb/85185544798238.jpg',
+        'https://resources.cdn-kaspi.kz/img/m/p/h23/hbb/85185544798238.jpg'
+      ],
+      link: 'https://kaspi.kz/shop/p/jbl-tour-one-m2-chernyi-116225005/',
+      likes: 0,
+      categoryId: 3
+    },
+    // Tablets (categoryId: 4)
+    {
+      id: 16,
+      name: 'iPad Pro 12.9',
+      description: 'Apple M2 chip, 12.9" Liquid Retina XDR, 128GB',
+      price: 549990,
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1585790050230-5dd28404f647?w=500&h=500&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1585790050230-5dd28404f647?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop'
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-ipad-pro-12-9-2022-wi-fi-128gb-seryi-106394251/',
+      likes: 0,
+      categoryId: 4
+    },
+    {
+      id: 17,
+      name: 'Samsung Tab S9 Ultra',
+      description: 'Snapdragon 8 Gen 2, 14.6" Super AMOLED, 256GB',
+      price: 499990,
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404f647?w=500&h=500&fit=crop'
+      ],
+      link: 'https://kaspi.kz/shop/p/samsung-galaxy-tab-s9-ultra-5g-256gb-grafitovyi-115289858/',
+      likes: 0,
+      categoryId: 4
+    },
+    {
+      id: 18,
+      name: 'Xiaomi Pad 6',
+      description: 'Snapdragon 870, 11" 144Hz display, 128GB',
+      price: 169990,
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404f647?w=500&h=500&fit=crop'
+      ],
+      link: 'https://kaspi.kz/shop/p/xiaomi-pad-6-8gb-128gb-sinii-114542834/',
+      likes: 0,
+      categoryId: 4
+    },
+    {
+      id: 19,
+      name: 'Lenovo Tab P12',
+      description: 'MediaTek Dimensity 7050, 12.7" 3K display, 256GB',
+      price: 199990,
+      rating: 4.6,
+      image: 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=500&h=500&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop'
+      ],
+      link: 'https://kaspi.kz/shop/p/lenovo-tab-p12-8gb-256gb-seryi-116425767/',
+      likes: 0,
+      categoryId: 4
+    },
+    {
+      id: 20,
+      name: 'Google Pixel Tablet',
+      description: 'Tensor G2, 10.95" display, 128GB, with speaker dock',
+      price: 299990,
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404f647?w=500&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&h=500&fit=crop'
+      ],
+      link: 'https://kaspi.kz/shop/p/google-pixel-tablet-128gb-s-hazel-116028710/',
+      likes: 0,
+      categoryId: 4
     }
   ];
 
-  getProducts(): Product[] {
-    return this.products;
+  getCategories(): Category[] {
+    return this.categories;
+  }
+
+  getProductsByCategory(categoryId: number): Product[] {
+    return this.products.filter(product => product.categoryId === categoryId);
+  }
+
+  deleteProduct(productId: number): void {
+    const index = this.products.findIndex(p => p.id === productId);
+    if (index !== -1) {
+      this.products.splice(index, 1);
+    }
+  }
+
+  likeProduct(productId: number): void {
+    const product = this.products.find(p => p.id === productId);
+    if (product) {
+      product.likes++;
+    }
   }
 }
+
 
