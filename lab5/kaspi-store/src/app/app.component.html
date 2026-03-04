@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/albums" routerLinkActive="active">Albums</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <p>Album Browser &copy; 2025</p>
+</footer>
