@@ -52,5 +52,13 @@ export class AlbumsComponent implements OnInit {
       });
     }
   }
+
+  getColor(id: number): string {
+    const colors = [
+      '92c952', 'ff5733', '33a8ff', 'ff33a8', 'a833ff', 
+      '33ff57', 'ffcc33', '33ffcc', 'c95292', '5733ff'
+    ];
+    return colors[id % colors.length];
+  }
 }
 
