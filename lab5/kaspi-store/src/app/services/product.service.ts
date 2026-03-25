@@ -17,8 +17,8 @@ export class ProductService {
     // Smartphones (categoryId: 1)
     {
       id: 1,
-      name: 'iPhone 15 Pro Max',
-      description: 'Apple A17 Pro chip, 6.7" Super Retina XDR display, 48MP camera',
+      name: 'Gallaxy S26 Ultra',
+      description: 'Apple A17 Pro chip, 6.7" Super Retina XDR display, 200MP camera',
       price: 649990,
       rating: 4.9,
       image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop',

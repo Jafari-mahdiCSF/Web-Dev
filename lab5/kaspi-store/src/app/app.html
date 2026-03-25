@@ -31,24 +31,7 @@
     <main class="products-area">
       @if (selectedCategory) {
         <!-- Favorites Section -->
-        <div class="favorites-section">
-          <h2 class="favorites-title">⭐ Favorites ({{ favorites.length }})</h2>
-          @if (favorites.length > 0) {
-            <div class="products-grid">
-              @for (product of favorites; track product.id) {
-                <app-product-card
-                  [product]="product"
-                  (like)="onLikeProduct($event)"
-                  (delete)="onDeleteProduct($event)"
-                  (share)="onShareProduct($event)"
-                  (favorite)="toggleFavorite($event)"
-                />
-              }
-            </div>
-          } @else {
-            <p class="empty-favorites">No favorite products yet</p>
-          }
-        </div>
+
 
         <!-- Products List -->
         <app-product-list
@@ -65,6 +48,24 @@
           <p>Please select a category from the sidebar to start shopping.</p>
         </div>
       }
+      <div class="favorites-section">
+        <h2 class="favorites-title">⭐ Favorites ({{ favorites.length }})</h2>
+        @if (favorites.length > 0) {
+          <div class="products-grid">
+            @for (product of favorites; track product.id) {
+              <app-favorite-card
+                [product]="product"
+                (like)="onLikeProduct($event)"
+                (delete)="onDeleteProduct($event)"
+                (share)="onShareProduct($event)"
+                (removeFavorite)="toggleFavorite($event)"
+              />
+            }
+          </div>
+        } @else {
+          <p class="empty-favorites">No favorite products yet</p>
+        }
+      </div>
     </main>
   </div>
 </div>

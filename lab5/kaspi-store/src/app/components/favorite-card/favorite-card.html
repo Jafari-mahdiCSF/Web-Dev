@@ -1,0 +1,54 @@
+<div class="product-card">
+  <div class="product-image-container">
+    <a [href]="product().link" target="_blank" class="product-link">
+      <img
+        [src]="product().image"
+        [alt]="product().name"
+        class="product-image"
+        (error)="onImageError($event)"
+      >
+    </a>
+    <button class="like-btn" (click)="onLike()" title="Like this product">
+      <i class="fas fa-heart"></i>
+      <span>{{ product().likes }}</span>
+    </button>
+<!--    <button class="remove-favorite-btn" (click)="onRemoveFavorite()" title="Remove from Favorites">-->
+<!--      <i class="fas fa-star"></i>-->
+<!--    </button>-->
+  </div>
+
+  <div class="product-info">
+    <h3 class="product-title">
+      <a [href]="product().link" target="_blank">{{ product().name }}</a>
+    </h3>
+
+<!--    <p class="product-description">{{ product().description }}</p>-->
+
+    <div class="product-rating">
+<!--      &lt;!&ndash; Full stars &ndash;&gt;-->
+<!--      @for (star of fullStars; track $index) {-->
+<!--        <span class="star filled">★</span>-->
+<!--      }-->
+
+<!--      &lt;!&ndash; Half star &ndash;&gt;-->
+<!--      @if (hasHalfStar) {-->
+<!--        <span class="star half">½</span>-->
+<!--      }-->
+
+<!--      &lt;!&ndash; Empty stars &ndash;&gt;-->
+<!--      @for (star of emptyStars; track $index) {-->
+<!--        <span class="star empty">☆</span>-->
+<!--      }-->
+
+<!--      <span class="rating-value">({{ product().rating }})</span>-->
+    </div>
+
+<!--    <div class="product-price">{{ product().price | number }} ₸</div>-->
+
+    <button class="remove-favorite-large-btn" (click)="onRemoveFavorite()" title="Remove from Favorites">
+      <i class="fas fa-star"></i>
+      <span>Remove from Favorites</span>
+    </button>
+  </div>
+</div>
+

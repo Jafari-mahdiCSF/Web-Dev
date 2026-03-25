@@ -1,0 +1,27 @@
+/* TEMPORARY DEBUG STYLES - Add to albums.component.css to test button visibility */
+
+/* Make favorite button VERY obvious for debugging */
+.btn-favorite {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  border: 3px solid #ff0000 !important;  /* RED border to make it obvious */
+  background: #ffffff !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999 !important;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.5) !important;
+}
+
+.btn-favorite .star-icon {
+  font-size: 28px !important;
+  color: #ffd700 !important;
+}
+
+/* If you can't see this, then Angular didn't compile or browser cache */
+

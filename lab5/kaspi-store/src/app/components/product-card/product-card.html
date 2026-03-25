@@ -24,17 +24,17 @@
     <div class="product-rating">
       <!-- Full stars -->
       @for (star of fullStars; track $index) {
-        <span class="star filled">★</span>
+        <span class="star filled"><i class="fas fa-star"></i></span>
       }
 
       <!-- Half star -->
       @if (hasHalfStar) {
-        <span class="star half">½</span>
+        <span class="star half"><i class="fas fa-star-half-alt"></i></span>
       }
 
       <!-- Empty stars -->
       @for (star of emptyStars; track $index) {
-        <span class="star empty">☆</span>
+        <span class="star empty"><i class="far fa-star"></i></span>
       }
 
       <span class="rating-value">({{ product().rating }})</span>

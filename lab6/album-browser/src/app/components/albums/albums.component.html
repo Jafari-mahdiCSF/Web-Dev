@@ -1,0 +1,105 @@
+<div class="albums-container">
+  <!-- Header -->
+  <div class="page-header">
+    <h1 class="page-title">Photo Albums</h1>
+
+    <!-- Filter Controls - Clean Material Design -->
+    <div class="filter-controls">
+      <!-- Favorites Counter -->
+      <mat-chip-set *ngIf="favoritesCount > 0">
+        <mat-chip highlighted>
+          <mat-icon>star</mat-icon>
+          {{ favoritesCount }} Favorite{{ favoritesCount > 1 ? 's' : '' }}
+        </mat-chip>
+      </mat-chip-set>
+
+      <!-- Show Favorites Checkbox -->
+      <mat-checkbox
+        [(ngModel)]="showOnlyFavorites"
+        (change)="applyFilter()"
+        color="primary">
+        Show only favorites
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading albums...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error-message">
+    <mat-icon>error_outline</mat-icon>
+    {{ error }}
+  </div>
+
+  <!-- Empty State - No Albums -->
+  <div *ngIf="!loading && !error && albums.length === 0" class="empty-state">
+    <mat-icon class="empty-icon">photo_library</mat-icon>
+    <h3>No Albums Found</h3>
+    <p>There are no albums to display at the moment.</p>
+  </div>
+
+  <!-- Empty State - No Favorites -->
+  <div *ngIf="!loading && !error && showOnlyFavorites && filteredAlbums.length === 0 && albums.length > 0" class="empty-state">
+    <mat-icon class="empty-icon">star_border</mat-icon>
+    <h3>No favorites yet</h3>
+    <p>Click the star icon on any album to add it to your favorites.</p>
+    <button mat-raised-button color="primary" (click)="showOnlyFavorites = false; applyFilter()">
+      <mat-icon>visibility</mat-icon>
+      Show All Albums
+    </button>
+  </div>
+
+  <!-- Albums Grid -->
+  <div *ngIf="!loading && !error && filteredAlbums.length > 0" class="albums-grid">
+    <mat-card *ngFor="let album of filteredAlbums" class="album-card">
+      <!-- Album Image with Favorite Button -->
+      <div class="album-image-wrapper" [routerLink]="['/albums', album.id]">
+        <img mat-card-image [src]="getThumbnail(album.id)" [alt]="album.title" loading="lazy">
+
+        <!-- Favorite Button -->
+        <button
+          mat-icon-button
+          class="favorite-button"
+          [class.favorited]="isFavorite(album.id)"
+          (click)="toggleFavorite(album.id, $event)"
+          [matTooltip]="isFavorite(album.id) ? 'Remove from favorites' : 'Add to favorites'"
+          [attr.aria-label]="isFavorite(album.id) ? 'Remove from favorites' : 'Add to favorites'">
+          <mat-icon>{{ isFavorite(album.id) ? 'star' : 'star_border' }}</mat-icon>
+        </button>
+      </div>
+
+      <!-- Card Content -->
+      <mat-card-content [routerLink]="['/albums', album.id]" class="card-content-clickable">
+        <mat-card-title>{{ album.title }}</mat-card-title>
+        <mat-card-subtitle>
+          <mat-chip-set>
+            <mat-chip>
+              <mat-icon>tag</mat-icon>
+              Album #{{ album.id }}
+            </mat-chip>
+            <mat-chip>
+              <mat-icon>person</mat-icon>
+              User {{ album.userId }}
+            </mat-chip>
+          </mat-chip-set>
+        </mat-card-subtitle>
+      </mat-card-content>
+
+      <!-- Card Actions -->
+      <mat-card-actions>
+        <button mat-button color="primary" [routerLink]="['/albums', album.id]">
+          <mat-icon>visibility</mat-icon>
+          View Details
+        </button>
+        <button mat-button color="warn" (click)="deleteAlbum(album.id, $event)">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

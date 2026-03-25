@@ -3,6 +3,7 @@
     <h2>{{ categoryName() }}</h2>
     <div class="products-grid">
       @for (product of products(); track product.id) {
+
         <app-product-card
           [product]="product"
           (like)="onLike($event)"

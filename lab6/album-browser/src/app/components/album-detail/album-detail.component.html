@@ -1,0 +1,72 @@
+<div class="detail-container">
+  <button class="btn-back" (click)="goBack()">
+    <span class="back-icon">←</span> Back to Albums
+  </button>
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading album details...</p>
+  </div>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  <div *ngIf="!loading && !error && album" class="detail-card">
+    <div class="detail-header">
+      <h1 class="detail-title">Album Details</h1>
+      <button
+        class="btn-favorite-detail"
+        [class.is-favorite]="isFavorite"
+        (click)="toggleFavorite()"
+        [attr.aria-pressed]="isFavorite"
+        [attr.aria-label]="isFavorite ? 'Remove from favorites' : 'Add to favorites'">
+        <span class="star-icon">{{ isFavorite ? '★' : '☆' }}</span>
+        <span class="star-text">{{ isFavorite ? 'Favorited' : 'Add to Favorites' }}</span>
+      </button>
+    </div>
+
+    <div class="detail-info">
+      <div class="info-item">
+        <span class="info-label">Album ID:</span>
+        <span class="info-value">{{ album.id }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">User ID:</span>
+        <span class="info-value">{{ album.userId }}</span>
+      </div>
+    </div>
+    <div class="edit-section">
+      <label class="edit-label" for="title">Album Title:</label>
+      <input
+        type="text"
+        id="title"
+        class="edit-input"
+        [(ngModel)]="editedTitle"
+        [disabled]="saving"
+      />
+      <div class="button-group">
+        <button
+          class="btn-save"
+          (click)="saveChanges()"
+          [disabled]="saving || !editedTitle.trim()"
+        >
+          <span *ngIf="saving" class="spinner-small"></span>
+          {{ saving ? 'Saving...' : 'Save Changes' }}
+        </button>
+        <button class="btn-photos" (click)="viewPhotos()">
+          View Photos
+        </button>
+      </div>
+    </div>
+
+    <!-- Photo Preview Section -->
+    <div *ngIf="!loading && !error && album" class="preview-section">
+      <h2 class="preview-title">Photo Preview</h2>
+      <div class="preview-grid">
+        <div *ngFor="let photoIndex of previewPhotos" class="preview-item">
+          <img [src]="getPhotoUrl(album.id, photoIndex)"
+               [alt]="'Photo ' + photoIndex + ' from ' + album.title"
+               class="preview-img"
+               loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>

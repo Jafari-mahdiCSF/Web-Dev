@@ -1,0 +1,53 @@
+<div class="photos-container">
+  <button class="btn-back" (click)="goBack()">
+    <span class="back-icon">←</span> Back to Album
+  </button>
+
+  <div class="page-header">
+    <h1 class="page-title">Album #{{ albumId }} Photos</h1>
+    <p class="photo-count" *ngIf="!loading && photos.length > 0">
+      <span class="count-badge">{{ photos.length }}</span> Photos
+    </p>
+  </div>
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading photos...</p>
+  </div>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  <div *ngIf="!loading && !error && photos.length === 0" class="empty-state">
+    <p class="empty-icon">📷</p>
+    <h3>No Photos Found</h3>
+    <p>This album doesn't have any photos yet.</p>
+  </div>
+  <div *ngIf="!loading && !error && photos.length > 0" class="photos-grid">
+    <div *ngFor="let photo of photos" class="photo-card" (click)="openPhoto(photo)">
+      <div class="photo-container">
+        <span class="photo-badge">#{{ photo.id }}</span>
+        <img [src]="photo.thumbnailUrl"
+             [alt]="photo.title"
+             class="photo-img"
+             loading="lazy">
+        <div class="photo-overlay">
+          <span class="photo-title">{{ photo.title }}</span>
+          <span class="view-hint">Click to view full size</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Modal -->
+  <div *ngIf="selectedPhoto" class="modal-overlay" (click)="closePhoto()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closePhoto()">✕</button>
+      <img [src]="selectedPhoto.url"
+           [alt]="selectedPhoto.title"
+           class="modal-img">
+      <div class="modal-info">
+        <h3>{{ selectedPhoto.title }}</h3>
+        <p class="photo-id">Photo ID: {{ selectedPhoto.id }}</p>
+      </div>
+    </div>
+  </div>
+</div>

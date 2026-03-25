@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductList } from './components/product-list/product-list';
-import { ProductCard } from './components/product-card/product-card';
+import { FavoriteCard } from './components/favorite-card/favorite-card';
 import { ProductService } from './services/product.service';
 import { Category } from './models/category.model';
 import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, ProductList, ProductCard],
+  imports: [CommonModule, ProductList, FavoriteCard],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
