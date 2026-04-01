@@ -1,0 +1,150 @@
+{
+  "info": {
+    "name": "Online Shop API",
+    "_postman_id": "5a2b9318-3b61-4f99-a3f0-b7369463fb74",
+    "description": "Lab 9 DRF endpoints for categories and products.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/categories/"
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/categories/1/"
+          }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/categories/1/products/"
+          }
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Accessories\"\n}"
+            },
+            "url": "{{base_url}}/categories/"
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mobile Devices\"\n}"
+            },
+            "url": "{{base_url}}/categories/1/"
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/categories/1/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products/"
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products/1/"
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Product\",\n  \"price\": 99990,\n  \"description\": \"Created from Postman\",\n  \"count\": 10,\n  \"is_active\": true,\n  \"rating\": 4.5,\n  \"image_url\": \"https://example.com/product.jpg\",\n  \"link\": \"https://example.com/product\",\n  \"category_id\": 1\n}"
+            },
+            "url": "{{base_url}}/products/"
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Product\",\n  \"price\": 109990,\n  \"description\": \"Updated from Postman\",\n  \"count\": 7,\n  \"is_active\": true,\n  \"rating\": 4.7,\n  \"image_url\": \"https://example.com/updated-product.jpg\",\n  \"link\": \"https://example.com/updated-product\",\n  \"category_id\": 1\n}"
+            },
+            "url": "{{base_url}}/products/1/"
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/products/1/"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    }
+  ]
+}
