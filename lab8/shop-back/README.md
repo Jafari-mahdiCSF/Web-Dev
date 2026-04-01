@@ -17,8 +17,11 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py seed_shop
 python manage.py runserver
 ```
+
+`seed_shop` adds demo categories and products (with images) used by the Lab 6 Angular storefront.
 
 ## API endpoints
 
