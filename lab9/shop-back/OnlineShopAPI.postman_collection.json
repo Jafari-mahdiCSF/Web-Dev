@@ -139,6 +139,27 @@
           }
         }
       ]
+    },
+    {
+      "name": "Search & Filters",
+      "item": [
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products/?search=phone"
+          }
+        },
+        {
+          "name": "Sort Products by Price",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products/?ordering=-price"
+          }
+        }
+      ]
     }
   ],
   "variable": [
